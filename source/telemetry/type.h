@@ -1,0 +1,6 @@
+#ifndef TELEMETRY_TYPE_H
+#define TELEMETRY_TYPE_H
+
+#define HEARTBEAT_TOPIC 0
+
+#endif
