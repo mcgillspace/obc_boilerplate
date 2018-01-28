@@ -3,21 +3,27 @@
 #include <stdio.h>
 
 #include <csp/csp.h>
+//#include <csp/csp_interface.h>
+#include <csp/arch/csp_system.h>
+//#include <csp/interfaces/csp_if_can.h>
 #include <csp/arch/csp_thread.h>
 #include <ipc/csp.h>
 #include <ipc/socket.h>
 
+/*
+* actually reboots but seems to only respawn this thread and other threads stay dead
+*/
 int reboot() {
     printf("Rebooting\n");
-//TODO
-	return 0;
+    int result = csp_sys_reboot();
+    return result;
 }
 
 
 CSP_DEFINE_TASK(timeout_task) {
 
     printf("Starting Timeout Task\n");
-    csp_sleep_ms(500);
+    csp_sleep_ms(5000);
 
     reboot();
     return CSP_TASK_RETURN;
