@@ -11,7 +11,7 @@
 
 #include <telemetry/main.h>
 #include <heartbeat/main.h>
-
+#include <mission_ops/main.h>
 
 int main(void)
 {
@@ -21,6 +21,7 @@ int main(void)
 
     telemetry_bootstrap();
     heartbeat_bootstrap();
+    missionops_bootstrap();
 
     while (1)
     {
